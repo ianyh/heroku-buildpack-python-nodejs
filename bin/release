@@ -10,7 +10,7 @@ MANAGE_FILE=${MANAGE_FILE:2}
 cat <<EOF
 ---
 config_vars:
-
+  PATH: node_modules/.bin:/usr/local/bin:/usr/bin:/bin
 EOF
 
 

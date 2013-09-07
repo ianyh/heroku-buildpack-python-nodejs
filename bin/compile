@@ -260,4 +260,6 @@ bpwatch start anvil_appdir_commit
   fi
 bpwatch stop anvil_appdir_commit
 
+$BIN_DIR/compile-nodejs
+
 bpwatch stop compile
