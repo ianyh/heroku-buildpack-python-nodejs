@@ -69,11 +69,6 @@ function resolve_version() {
     args="${args} -r \"${requested_version}\"";
   fi
 
-  echo "resolving version"
-  echo $bootstrap_node
-  echo $LP_DIR
-  find $LP_DIR
-  echo "---"
   evaluated_versions=$(eval $bootstrap_node/bin/node $LP_DIR/vendor/node-semver/bin/semver ${args} || echo "")
   echo "$evaluated_versions" | tail -n 1
 }
