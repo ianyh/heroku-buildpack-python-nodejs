@@ -175,10 +175,12 @@ export CPATH="$INCLUDE_PATH:$CPATH"
 export CPPPATH="$INCLUDE_PATH:$CPPPATH"
 
 # install dependencies with npm
-echo "-----> Installing dependencies with npm"
-run_npm "install --production"
-run_npm "rebuild"
-echo "Dependencies installed" | indent
+if [ -e $BUILD_DIR/package.json ]; then
+  echo "-----> Installing dependencies with npm"
+  run_npm "install --production"
+  run_npm "rebuild"
+  echo "Dependencies installed" | indent
+fi
 
 echo "-----> Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
