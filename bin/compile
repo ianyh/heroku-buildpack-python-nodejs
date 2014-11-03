@@ -8,6 +8,8 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
+source $BIN_DIR/compile-nodejs "$@"
+
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -259,7 +261,5 @@ bpwatch start anvil_appdir_commit
     deep-mv $TMP_APP_DIR $APP_DIR
   fi
 bpwatch stop anvil_appdir_commit
-
-source $BIN_DIR/compile-nodejs "$@"
 
 bpwatch stop compile
