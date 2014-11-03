@@ -8,8 +8,6 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-source $BIN_DIR/compile-nodejs "$@"
-
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -79,6 +77,8 @@ bpwatch stop appdir_stage
 # Set new context.
 ORIG_BUILD_DIR=$BUILD_DIR
 BUILD_DIR=$APP_DIR
+
+source $BIN_DIR/compile-nodejs "$@"
 
 # Prepend proper path buildpack use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
